@@ -1,17 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Happy Birthday Celuny</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Celuny</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0e0b1d;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2em;
+      color: pink;
+    }
+
+    #message {
+      white-space: pre-wrap;
+      max-width: 600px;
+      margin: auto;
+      font-size: 1em;
+      padding: 20px;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-    <canvas id="background"></canvas>
-    <div class="content">
-        <pre id="poem"></pre>
-        <p id="counter">Celuny has lived <span>6575</span> days ✨</p>
-    </div>
-    <audio id="music" src="happybirthday.mp3" autoplay loop></audio>
-    <script src="script.js"></script>
+  <h1>Happy Birthday Celuny 🎂</h1>
+
+  <div id="message">
+Happy Birthday, dear Celuny,  
+a beacon in my life's grand sea.  
+You mean so much, truly, profoundly,  
+my precious friend, for all to see.
+
+And beyond the bond of friendship's grace,  
+you shine so bright, in every space.  
+My precious girl, with heart so pure,  
+a gentle soul, of whom I'm sure.
+
+May this new year, with skies so vast,  
+bring endless joy, a joy to last.  
+May grand adventures find your way,  
+each rising sun, a brighter day.
+
+Happy Birthday sweet Celuny,  
+may life’s best gifts now come to thee. ❤️
+  </div>
+
+  <audio autoplay loop>
+    <source src="happy-birthday.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    let hearts = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.onresize = resize;
+
+    function Heart() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height + Math.random() * 100;
+      this.size = Math.random() * 10 + 10;
+      this.speed = Math.random() * 2 + 1;
+      this.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+
+      this.draw = function () {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.bezierCurveTo(this.x - this.size / 2, this.y - this.size / 2,
+                          this.x - this.size, this.y + this.size / 3,
+                          this.x, this.y + this.size);
+        ctx.bezierCurveTo(this.x + this.size, this.y + this.size / 3,
+                          this.x + this.size / 2, this.y - this.size / 2,
+                          this.x, this.y);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      };
+
+      this.update = function () {
+        this.y -= this.speed;
+        if (this.y < -10) {
+          this.y = canvas.height + Math.random() * 100;
+          this.x = Math.random() * canvas.width;
+        }
+        this.draw();
+      };
+    }
+
+    function initHearts() {
+      hearts = [];
+      for (let i = 0; i < 100; i++) {
+        hearts.push(new Heart());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hearts.forEach(heart => heart.update());
+      requestAnimationFrame(animate);
+    }
+
+    initHearts();
+    animate();
+  </script>
 </body>
 </html>
