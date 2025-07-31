@@ -1,4 +1,4 @@
-
+<DOCUMENT filename="style.css">
 html, body {
     margin: 0;
     padding: 0;
@@ -35,6 +35,41 @@ html, body {
     font-size: 0.9rem;
     color: #fceabb;
 }
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    background: #ff5c8a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff85a1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .content {
+        top: 15%;
+        font-size: 0.9rem;
+    }
+    #poem {
+        font-size: 1rem;
+    }
+    #counter {
+        font-size: 0.8rem;
+    }
+}
+</DOCUMENT>}
 
 @keyframes fadeIn {
     from {{ opacity: 0; }}
