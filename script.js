@@ -122,7 +122,21 @@ function typePoem() {
         setTimeout(typePoem, speed);
     }
 }
+function toggleAudio() {
+    if (music.paused) {
+        music.play();
+        this.textContent = 'Pause Music';
+    } else {
+        music.pause();
+        this.textContent = 'Play Music';
+    }
+}
 
+window.onload = () => {
+    music.volume = 0.8;
+    typePoem();
+};
+</DOCUMENT>
 // Audio control
 function toggleAudio() {
     const music = document.getElementById('music');
