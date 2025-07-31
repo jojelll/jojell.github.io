@@ -137,7 +137,7 @@ function toggleAudio() {
 
 window.onload = () => {
     const music = document.getElementById('music');
-    music.volume = 0.5;
+    music.volume = 0.8;
     typePoem();
 };
 </DOCUMENT>}
@@ -222,7 +222,7 @@ function typePoem() {
 
 window.onload = () => {
     const music = document.getElementById("music");
-    music.volume = 0.5;
+    music.volume = 0.8;
     music.play();
     typePoem();
 };
