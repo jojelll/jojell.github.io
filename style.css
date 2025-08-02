@@ -1,39 +1,83 @@
-<DOCUMENT filename="style.css">
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #0b0c2a;
-    color: #fff;
-    font-family: 'Courier New', monospace;
-    overflow: hidden;
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(#0d1b2a, #1b263b);
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+  color: pink;
 }
 
-#background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+.moon {
+  position: absolute;
+  top: 60px;
+  left: 70%;
+  width: 100px;
+  height: 100px;
+  background: #fffacd;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #fffacd;
 }
 
-.content {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    right: 5%;
-    font-size: 1rem;
-    white-space: pre-wrap;
+#stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-#poem {
-    font-size: 1.1rem;
-    animation: fadeIn 2s ease-in-out;
+.hearts-container .heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  transform: rotate(45deg);
+  animation: float 6s linear infinite;
 }
 
-#counter {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #fceabb;
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.poem {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  padding: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  white-space: pre-wrap;
+  background: rgba(0,0,0,0.3);
+  border-radius: 20px;
+}
 }
 
 button {
