@@ -1,39 +1,31 @@
-<DOCUMENT filename="index.html">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Celuny</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css" />
 </head>
 <body>
-  <canvas id="background" aria-hidden="true"></canvas>
-  <div class="content">
-    <div id="poem"></div>
-    <div id="counter">Celuny has lived 6574 days / 157776 hours ✨</div>
-    <button onclick="toggleAudio()">Play Music</button>
-  </div>
-  <audio id="music" loop>
-    <source src="happybirthday.mp3" type="audio/mpeg">
+  <audio id="bg-music" autoplay loop>
+    <source src="happybirthday.mp3" type="audio/mp3" />
     Your browser does not support the audio element.
   </audio>
-  <script src="script.js"></script>
+
+  <div class="sky">
+    <div class="moon"></div>
+    <canvas id="stars"></canvas>
+  </div>
+
+  <div class="hearts-container"></div>
+
+  <div class="poem">
+    <pre id="typewriter"></pre>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
-</DOCUMENT>    }
-  </style>
-</head>
-<body>
-  <h1>Happy Birthday Celuny 🎂</h1>
-
-  <div id="message">
-Happy Birthday, dear Celuny,  
-a beacon in my life's grand sea.  
-You mean so much, truly, profoundly,  
-my precious friend, for all to see.
-
-And beyond the bond of friendship's grace,  
 you shine so bright, in every space.  
 My precious girl, with heart so pure,  
 a gentle soul, of whom I'm sure.
